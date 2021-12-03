@@ -10,7 +10,7 @@ module "vpc" {
 
   enable_nat_gateway = false
   enable_vpn_gateway = true
-	#map_public_ip_on_launch = false
+  map_public_ip_on_launch = false
 
   tags = {
     Terraform = "true"
