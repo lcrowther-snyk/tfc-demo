@@ -25,7 +25,7 @@ resource "aws_security_group" "allow_ssh" {
 }
 
 resource "aws_security_group_rule" "ssh_inbound" {
-	cidr_blocks = [ "192.168.0.0/24" ]
+	cidr_blocks = [ "0.0.0.0/0" ]
 	security_group_id = aws_security_group.allow_ssh.id
 	protocol = "tcp"
 	from_port = 22
