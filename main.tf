@@ -10,25 +10,10 @@ module "vpc" {
 
   enable_nat_gateway = false
   enable_vpn_gateway = true
-	#map_public_ip_on_launch = false
+	map_public_ip_on_launch = false
 
   tags = {
     Terraform = "true"
     Environment = "dev"
   }
-}
-
-resource "aws_security_group" "allow_ssh" {
-  name        = "allow_ssh"
-  description = "Allow ssh inbound traffic"
-  vpc_id      = module.vpc.vpc_id
-}
-
-resource "aws_security_group_rule" "ssh_inbound" {
-	cidr_blocks = [ "0.0.0.0/0" ]
-	security_group_id = aws_security_group.allow_ssh.id
-	protocol = "tcp"
-	from_port = 22
-	to_port = 22
-	type = "ingress"
 }
