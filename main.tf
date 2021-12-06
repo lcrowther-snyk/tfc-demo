@@ -17,17 +17,3 @@ module "vpc" {
   }
 }
 
-resource "aws_security_group" "allow_ssh" {
-  name        = "allow_ssh"
-  description = "Allow ssh inbound traffic"
-  vpc_id      = module.vpc.vpc_id
-}
-
-resource "aws_security_group_rule" "ssh_inbound" {
-	cidr_blocks = [ "192.168.1.0/24" ]
-	security_group_id = aws_security_group.allow_ssh.id
-	protocol = "tcp"
-	from_port = 22
-	to_port = 22
-	type = "ingress"
-}
