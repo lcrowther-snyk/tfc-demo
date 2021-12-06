@@ -31,5 +31,3 @@ resource "aws_security_group_rule" "ssh_inbound" {
 	to_port = 22
 	type = "ingress"
 }
-
-#
